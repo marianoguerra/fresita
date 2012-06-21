@@ -1,0 +1,3 @@
+*.jar
+*.beam
+editor/.couchapprc

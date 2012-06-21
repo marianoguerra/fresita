@@ -1,0 +1,40 @@
+fresita
+=======
+
+this repo is here for historical reasons
+
+it was part of my master thesis
+
+setup
+-----
+
+run **setup.sh**, you will need pip installed (http://pypi.python.org/pypi/pip)
+
+you can test that it worked by exporting a sample document::
+
+        cd exporter
+        python  export.py -i tmp/doc.xml -o doc.pdf -f pdf -s tmp/intelskin.xsl -t file
+
+it should generate a really simples sample file called doc.pdf
+
+
+add this to your /etc/couchdb/local.ini file::
+
+        [httpd_global_handlers]
+
+        editor = {fresita, redirect_editor}
+        _export = {fresita, export_document}
+        _style = {fresita, export_style}
+
+        [couchdb]
+        os_process_timeout=60000 ; increase the timeout from 5 seconds.
+
+        [external]
+        fti=/usr/bin/python /path/to/couchdb-lucene/couchdb-external-hook.py
+
+        [httpd_db_handlers]
+        _fti = {couch_httpd_external, handle_external_req, <<"fti">>}
+
+.. note::
+
+        change /path/to/ above for the actual path

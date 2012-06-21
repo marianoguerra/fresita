@@ -1,0 +1,749 @@
+<html>
+ <head>
+  <title>Editor</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" href="style/redmond/jquery-ui-1.7.2.custom.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="style/ui.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="style/menu.css" type="text/css" media="all"/>
+
+  <script src="js/req.js"></script>
+  <script src="js/model.js"></script>
+
+  <script src="/_utils/script/json2.js"></script>
+
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/t.js"></script>
+  <script type="text/javascript" src="js/ui.js"></script>
+  <script type="text/javascript" src="js/html.js"></script>
+
+  <script type="text/javascript" src="js/repo.js"></script>
+  <script type="text/javascript" src="js/style.js"></script>
+  <script type="text/javascript" src="js/author.js"></script>
+  <script type="text/javascript" src="js/document.js"></script>
+  <script type="text/javascript" src="js/category.js"></script>
+
+  <script type="text/javascript" src="js/wymeditor/jquery.wymeditor.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.2.min.js"></script>
+  <script src="/_utils/script/jquery.couch.js?0.10.0"></script>
+  <script type="text/javascript" src="js/jquery.form.js"></script>
+ </head>
+
+ <body>
+
+<ul class="cssMenu cssMenum">
+ <li class=" cssMenui"><a class="  cssMenui" href="#"><span>Archivo</span><![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+ <ul class=" cssMenum">
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onNewClick(true);" title="Crear un nuevo documento">Nuevo</a></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onOpenClick(true);" title="Abrir un documento existente">Abrir</a></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onEditClick();" title="Actualizar documento seleccionado">Actualizar</a></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="#" title="Insertar un documento en el documento actual"><span>Insertar</span><![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+  <ul class=" cssMenum">
+
+   <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onNewClick(false);" title="Insertar un nuevo documento en el documento actual">Nuevo</a></li>
+   <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onOpenClick(false);" title="Insertar un documento existente en el documento actual">Existente</a></li>
+  </ul>
+  <!--[if lte IE 6]></td></tr></table></a><![endif]--></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onSaveClick();" title="Guardar los documentos actuales">Guardar</a></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onExportClick();" title="Exportar los documentos actuales a otro formato">Previsualizar</a></li>
+ </ul>
+
+ <!--[if lte IE 6]></td></tr></table></a><![endif]--></li>
+ <li class=" cssMenui"><a class="  cssMenui" href="#"><span>Editar</span><![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+ <ul class=" cssMenum">
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.editor.exec('Undo');" title="Deshacer la ultima acci&oacute;n">Deshacer</a></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.editor.exec('Redo');" title="Reshacer la ultima acci&oacute;n">Rehacer</a></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onRemoveClick();" title="Eliminar el documento actual">Eliminar documento</a></li>
+ </ul>
+ <!--[if lte IE 6]></td></tr></table></a><![endif]--></li>
+
+ <li class=" cssMenui"><a class="  cssMenui" href="#"><span>Ver</span><![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+ <ul class=" cssMenum">
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.editor.toggleHtml();" title="Ver el c&oacute;digo del documento actual">C&oacute;digo</a></li>
+ </ul>
+ <!--[if lte IE 6]></td></tr></table></a><![endif]--></li>
+ <li class=" cssMenui"><a class="  cssMenui" href="#"><span>Insertar</span><![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+ <ul class=" cssMenum">
+
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.editor.dialog('Link');" title="Insertar un enlace en la posici&oacute;n actual">Enlace</a></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onInsertImageClick();" title="Insertar una imagen en la posici&oacute;n actual">Imagen</a></li>-->
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.editor.dialog('Table');" title="Insertar una tabla en la posici&oacute;n actual">Tabla</a></li>
+ </ul>
+ <!--[if lte IE 6]></td></tr></table></a><![endif]--></li>
+ <li class=" cssMenui"><a class="  cssMenui" href="#"><span>Ayuda</span><![if gt IE 6]></a><![endif]><!--[if lte IE 6]><table><tr><td><![endif]-->
+ <ul class=" cssMenum">
+
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onAboutClick();" title="Informaci&oacute;n sobre el producto">Acerca de</a></li>
+  <li class=" cssMenui"><a class="  cssMenui" href="javascript:ui.onDocsClick();" title="Documentaci&oacute;n sobre el producto">Documentaci&oacute;n</a></li>
+ </ul>
+ <!--[if lte IE 6]></td></tr></table></a><![endif]--></li>
+</ul>
+
+  <textarea id="wymeditor"></textarea>
+  <script type="text/javascript">
+   req.base = location.pathname.match(/^\/.*?\//)[0];
+
+   $(function () { 
+    ui.init();
+   });
+
+  </script>
+
+  <!-- inicio Crear Documento -->
+
+  <div id="new-document" class="hidden">
+   <div id="new-doc-form" class="form">
+    <fieldset>
+     <legend id="new-document-title">Nuevo Documento</legend>
+     <p>
+      <label for="title" class="t">Titulo</label>
+      <input type="text" name="title" class="field" value="" id="doc-title"/>
+      <input type="hidden" value="new" id="new-document-type"/>
+      <input type="hidden" value="" id="new-document-id"/>
+      <input type="hidden" value="" id="new-document-rev"/>
+      <input type="hidden" value="" id="new-document-created"/>
+      <input type="hidden" value="" id="new-document-body"/>
+     </p>
+     <p>
+      <label for="tags" class="t">Tags</label>
+      <input type="text" name="tags" class="field" value="" id="doc-tags"/>
+     </p>
+     <p class="edit-only">
+      <label for="show-doc-id" class="t">Identificador</label>
+      <input type="text" name="show-doc-id" class="field" value="" readonly="readonly" id="show-doc-id"/>
+     </p>
+     <p>
+      <label for="description" class="t required">Descripci&oacute;n</label>
+      <textarea id="doc-description"></textarea>
+     </p>
+     <p>
+      <button class="t send" onclick="ui.onNewDocument();">Listo</button>
+     </p>
+    </fieldset>
+    
+    <div id="new-doc-more" class="hidden tabs">
+     <ul>
+      <li><a href="#doc-authors" id="doc-authors-tab" class="t">Autores</a></li>
+      <li><a href="#doc-styles" class="t">Estilos</a></li>
+      <li><a href="#doc-dependencies" class="t">Dependencias</a></li>
+      <li><a href="#doc-conflicts" class="t">Conflictos</a></li>
+      <li><a href="#doc-rules" class="t">Reglas</a></li>
+     </ul>
+
+     <div id="doc-authors">
+      <div id="doc-authors-search">
+       <div class="search-box" id="search-authors">
+        <div class="search-box-inner">
+         <span class="t">Buscar</span>
+         <input type="text" name="doc-author" class="send-on-enter field" value="" id="doc-author" />
+        </div>
+        <div class="buttons">
+         <button id="do-rate" onclick="ui.onNewAuthor();" class="t">Nuevo</button>
+         <button id="do-doc-author" onclick="ui.onSearchAuthors();" class="t">Buscar</button>
+         <button onclick="ui.onSearchAllAuthors();" class="t">Todos</button>
+        </div>
+       </div>
+
+       <p>Resultados</p>
+       <div class="list-scroll">
+        <ul id="doc-authors-results">
+        </ul>
+       </div>
+
+       <p>Seleccionados</p>
+       <div class="list-scroll">
+        <ul id="doc-authors-selected">
+        </ul>
+       </div>
+      </div>
+
+      <div id="new-author" class="hidden">
+       <div id="new-author-form" class="form">
+        <fieldset>
+         <legend>Crear Autor</legend>
+         <p>
+          <label for="firstname" class="t">Nombre</label>
+          <input type="text" name="firstname" value="" class="field" id="new-author-firstname"/>
+         </p>
+         <p>
+          <label for="lastname" class="t">Apellido</label>
+          <input type="text" name="lastname" value="" class="field" id="new-author-lastname"/>
+         </p>
+         <p>
+          <label for="email" class="t">Email</label>
+          <input type="text" name="email" value="" class="field" id="new-author-email"/>
+         </p>
+         <p>
+          <label for="web" class="t">Web</label>
+          <input type="text" name="web" value="" class="field" id="new-author-web"/>
+         </p>
+         <p>
+          <label for="user" class="t">Usuario</label>
+          <input type="text" name="user" value="" class="field" id="new-author-user"/>
+         </p>
+         <p>
+          <label for="password" class="t">Contrase&ntilde;a</label>
+          <input type="password" name="password" value="" class="field" id="new-author-pass"/>
+         </p>
+         <p>
+          <label for="confirm" class="t">Confirme contrase&ntilde;a</label>
+          <input type="password" name="confirm" value="" class="field" id="new-author-confirm"/>
+         </p>
+         <p>
+          <div class="buttons">
+           <button onclick="ui.onNewAuthorOk();" class="t">Crear</button>
+           <button id="do-rate" onclick="ui.onNewAuthorCancel();" class="t">Cancelar</button>
+          </div>
+         </p>
+        </fieldset>
+       </div>
+      </div>
+     </div>
+
+     <div id="doc-styles">
+      <div id="doc-styles-search">
+       <div class="search-box" id="search-styles">
+        <div class="search-box-inner">
+         <span class="t">Buscar</span>
+         <input type="text" name="doc-style" class="send-on-enter field" value="" id="doc-style" />
+        </div>
+        <div class="buttons">
+         <button id="do-doc-style" onclick="ui.onSearchDocumentStyles();" class="t">Buscar</button>
+         <button onclick="ui.onSearchAllDocStyles();" class="t">Todos</button>
+        </div>
+       </div>
+
+       <p>Resultados</p>
+       <div class="list-scroll">
+        <ul id="doc-styles-results">
+        </ul>
+       </div>
+
+       <p>Seleccionados</p>
+       <div class="list-scroll">
+        <ul id="doc-styles-selected">
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div id="doc-dependencies">
+      <div id="doc-deps-search">
+       <div class="search-box" id="search-deps">
+        <div class="search-box-inner">
+         <span class="t">Buscar</span>
+         <input type="text" name="doc-dep" class="send-on-enter field" value="" id="doc-dep" />
+        </div>
+        <button id="do-doc-dep" onclick="ui.onSearchDeps();" class="t action-btn">Buscar</button>
+       </div>
+
+       <p>Resultados</p>
+       <div class="list-scroll">
+        <ul id="doc-deps-results">
+        </ul>
+       </div>
+
+       <p>Seleccionados</p>
+       <div class="list-scroll">
+        <ul id="doc-deps-selected">
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div id="doc-conflicts">
+      <div id="doc-conflicts-search">
+       <div class="search-box" id="search-conflicts">
+        <div class="search-box-inner">
+         <span class="t">Buscar</span>
+         <input type="text" name="doc-conflict" class="send-on-enter field" value="" id="doc-conflict" />
+        </div>
+        <button id="do-doc-conflict" onclick="ui.onSearchConflicts();" class="t action-btn">Buscar</button>
+       </div>
+
+       <p>Resultados</p>
+       <div class="list-scroll">
+        <ul id="doc-conflicts-results">
+        </ul>
+       </div>
+       <p>Seleccionados</p>
+       <div class="list-scroll">
+        <ul id="doc-conflicts-selected">
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div id="doc-rules">
+      <div id="doc-rules-search">
+       <div class="search-box" id="search-rules">
+        <div class="search-box-inner">
+         <span class="t">Buscar</span>
+         <input type="text" name="doc-rule" class="send-on-enter field" value="" id="doc-rule" />
+        </div>
+        <div id="doc-style-buttons" class="buttons">
+         <button onclick="ui.onNewCategoryClick();" class="t">Nuevo</button>
+         <button id="do-doc-rule" onclick="ui.onSearchRules();" class="t">Buscar</button>
+         <button onclick="ui.onSearchAllRules();" class="t">Todas</button>
+        </div>
+       </div>
+
+       <p>Resultados</p>
+       <div class="list-scroll">
+        <ul id="doc-rules-results">
+        </ul>
+       </div>
+       <p>Seleccionados</p>
+       <div class="list-scroll">
+        <ul id="doc-rules-selected">
+        </ul>
+       </div>
+      </div>
+
+      <div id="new-cat" class="hidden">
+       <div id="new-cat-form" class="form">
+        <fieldset>
+         <legend>Crear Categoria</legend>
+         <p>
+          <label for="name" class="t">Nombre</label>
+          <input type="text" name="name" value="" class="field" id="new-cat-name"/>
+         </p>
+         <p>
+          <label for="empty" class="t">Permitir selecci&oacute;n vacia</label>
+          <input type="checkbox" name="empty" value="" class="field" id="new-cat-empty"/>
+         </p>
+         <p>
+          <label for="multiple" class="t">Permitir selecci&oacute;n multiple</label>
+          <input type="checkbox" name="multiple" value="" class="field" id="new-cat-multiple"/>
+         </p>
+         <p>
+          <fieldset>
+           <legend>Opciones</legend>
+           <p>
+            <label for="name" class="t">Nombre</label>
+            <input type="text" name="name" value="" class="field" id="new-cat-option-name"/>
+           </p>
+           <p>
+            <label for="empty" class="t">Descripci&oacute;n</label>
+            <textarea id="new-cat-option-desc"></textarea>
+           </p>
+           <p>
+            <div class="buttons">
+             <button onclick="ui.onAddCategoryItem();" class="t">A&ntilde;adir</button>
+            </div>
+           </p>
+           <p>
+            <div class="list-scroll">
+             <ul id="new-cat-options">
+             </ul>
+            </div>
+           </p>
+          </fieldset>
+         </p>
+         <p>
+          <div class="buttons">
+           <button onclick="ui.onNewCategoryOk();" class="t">Crear</button>
+           <button id="do-rate" onclick="ui.onNewCategoryCancel();" class="t">Cancelar</button>
+          </div>
+         </p>
+        </fieldset>
+       </div>
+      </div>
+
+     </div>
+    </div>
+
+    <button id="new-doc-more-btn" class="more" onclick="ui.onToggleNewDocumentMore();" class="t">Avanzado</button>
+   </div>
+  </div>
+
+  <!-- fin Crear Documento -->
+
+  <!-- inicio Abrir Documento -->
+
+  <div id="open-document" class="hidden">
+   <div id="doc-open-search" class="form">
+    <div class="search-box" id="search-open">
+     <div class="search-box-inner">
+      <span class="t">Buscar</span>
+      <input type="text" name="doc-open" class="send-on-enter field" value="" id="doc-open" />
+     </div>
+     <button id="do-doc-open" onclick="ui.onSearchOpen();" class="t action-btn">Buscar</button>
+    </div>
+
+    <div class="list-scroll">
+     <ul id="doc-open-results">
+     </ul>
+    </div>
+   </div>
+  </div>
+
+  <!-- fin Abrir Documento -->
+
+  <!-- inicio Calificar Documento -->
+
+  <div id="rate-document" class="hidden">
+   <div class="form">
+    <p id="rate-msg"></p>
+    <p>
+     <label for="document-rate" class="t">Valor</label>
+     <input type="text" id="document-rate" class="field" style="border:0; color:#f6931f; font-weight:bold;" />
+    </p>
+
+    <div id="document-rating"></div>
+   </div>
+
+    <div class="buttons">
+     <button id="do-rate" onclick="ui.onRateDocument();" class="t">Calificar</button>
+     <button onclick="ui.onRateCancel();" class="t">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- fin Calificar Documento -->
+
+  <!-- inicio Dialog Acerca De -->
+
+  <div id="about-dialog" class="hidden">
+   <div class="form">
+    <p>Editor de documentos jerarquico 1.0</p>
+    <p></p>
+    <p>DallAmore Farias Guerra</p>
+   </div>
+
+  </div>
+
+  <!-- fin Dialog Acerca De -->
+
+  <!-- inicio Dialog Documentacion -->
+
+  <div id="docs-dialog" class="hidden">
+   <div class="form">
+    <p>Documentacion</p>
+    <p>TODO</p>
+   </div>
+
+  </div>
+
+  <!-- fin Dialog Documentacion -->
+
+  <!-- inicio Dialog Confirmacion -->
+
+  <div id="confirm-dialog" class="hidden">
+   <div class="form">
+    <p id="confirm-message"></p>
+    <div class="buttons">
+     <button onclick="ui.onConfirmAccept();" class="t">Aceptar</button>
+     <button onclick="ui.onConfirmCancel();" class="t">Cancelar</button>
+    </div>
+   </div>
+
+  </div>
+
+  <!-- fin Dialog Documentacion -->
+
+  <!-- inicio Sync -->
+
+  <div id="sync-repo" class="hidden">
+   <div id="doc-open-search" class="form tabs">
+    <ul>
+     <li><a href="#sync-repos" id="sync-repos-tab" class="t">Sincronizar</a></li>
+     <li><a href="#fix-conflicts" class="t">Conflictos</a></li>
+    </ul>
+
+    <div id="sync-repos" class="tab-panel">
+     <div class="search-box" id="search-repo">
+      <div class="search-repo-inner">
+       <span class="t">Buscar</span>
+       <input type="text" name="repo-name" class="send-on-enter field" value="" id="repo-name" />
+      </div>
+
+      <div id="sync-repo-results-list" class="list-scroll">
+       <ul id="sync-repo-results">
+       </ul>
+      </div>
+     </div>
+
+     <div id="add-repo" class="hidden">
+      <fieldset>
+       <legend id="add-repo-title">Crear repositorio</legend>
+       <p>
+        <label for="repo-name" class="t">Nombre</label>
+        <input type="text" name="repo-name" class="field" value="" id="add-repo-name"/>
+        <input type="hidden" value="" id="add-repo-id"/>
+        <input type="hidden" value="" id="add-repo-rev"/>
+       </p>
+       <p>
+        <label for="repo-address" class="t">Direcci&oacute;n</label>
+        <input type="text" name="repo-address" class="field" value="" id="add-repo-address"/>
+       </p>
+       <p>
+        <div class="buttons">
+         <button class="t send" onclick="ui.onNewRepo();">Listo</button>
+         <button class="t send" onclick="ui.onNewRepoCancel();">Cancelar</button>
+        </div>
+       </p>
+      </fieldset>
+     </div>
+     <div id="sync-repo-buttons" class="buttons">
+      <button onclick="ui.onAddRepoClick('', '', '', '', 'Crear repositorio');" class="t">Crear repositorio</button>
+      <button id="do-repo-name" onclick="ui.onSearchRepo();" class="t">Buscar</button>
+      <button onclick="ui.onSearchAllRepos();" class="t">Todos</button>
+     </div>
+    </div>
+
+    <div id="fix-conflicts" class="tab-panel">
+     <div id="repo-conflicts" class="list-scroll">
+      <ul id="conflicts-list">
+      </ul>
+     </div>
+     <div class="buttons">
+      <button onclick="ui.onFixConflicts();" class="t">Obtener conflictos</button>
+     </div>
+    </div>
+
+   </div>
+  </div>
+
+  <!-- fin Sync -->
+
+  <!-- inicio Export -->
+
+  <div id="doc-export" class="hidden">
+   <div id="doc-style-search" class="form">
+    <div class="search-box" id="search-style">
+     <div class="search-style-inner">
+      <span class="t">Buscar</span>
+      <input type="text" name="style-name" class="send-on-enter field" value="" id="style-name" />
+     </div>
+    </div>
+
+    <div class="list-scroll">
+     <ul id="doc-style-results">
+     </ul>
+    </div>
+
+    <p id="export-format-field">
+     <label for="export-format">Formato</label>
+     <select name="export-format" id="export-format">
+      <option value="pdf">pdf</option>
+      <option value="rtf">rtf</option>
+     </select>
+    </p>
+
+    <div id="doc-style-buttons" class="table-buttons">
+     <button onclick="ui.onNewStyleClick();" class="t">Nuevo estilo</button>
+     <button id="do-style-name" onclick="ui.onSearchStyle();" class="t">Buscar</button>
+     <button id="do-style-name" onclick="ui.onSearchAllStyles();" class="t">Todos</button>
+    </div>
+
+   </div>
+
+     <div id="add-style" class="form hidden tabs">
+      <ul>
+       <li><a href="#add-style-main" id="add-style-main-tab" class="t">Estilo</a></li>
+       <li><a href="#add-style-values" class="t">Valores</a></li>
+      </ul>
+      
+      <div id="add-style-main">
+       <fieldset>
+        <legend>Crear estilo</legend>
+        <p>
+         <label for="add-style-name" class="t">Nombre</label>
+         <input type="text" name="add-style-name" class="field" value="" id="add-style-name"/>
+        </p>
+        <p>
+         <label for="add-style-description" class="t">Descripci&oacute;n</label>
+         <textarea id="add-style-description" style="width: 100%;" rows="3" name="add-style-description"></textarea>
+        </p>
+        <p>
+         <label for="add-style-content" class="t">C&oacute;digo</label>
+         <textarea id="add-style-content" name="add-style-content" style="width: 100%;" rows="15"></textarea>
+        </p>
+        <p>
+        <div class="buttons">
+         <button class="t send" onclick="ui.onNewStyleOk();">Crear</button>
+         <button class="t send" onclick="ui.onNewStyleCancel();">Cancelar</button>
+        </div>
+       </p>
+      </fieldset>
+     </div>
+     <div id="add-style-values">
+      <fieldset>
+       <legend>A&ntilde;adir valor</legend>
+       <p>
+        <label for="add-style-name" class="t">Nombre</label>
+        <input type="text" name="add-style-name" class="field" value="" id="add-style-values-name"/>
+       </p>
+       <p>
+        <label for="add-style-description" class="t">Valor</label>
+        <input type="text" name="add-style-name" class="field" value="" id="add-style-values-value"/>
+       </p>
+       <p>
+        <div class="buttons">
+         <button class="t send" onclick="ui.onAddStyleValue('add');">A&ntilde;adir</button>
+        </div>
+       </p>
+      </fieldset>
+
+      <div class="list-scroll">
+       <div id="add-style-values-list" class="values-list">
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <div id="edit-style" class="form hidden tabs">
+     <ul>
+      <li><a href="#edit-style-main" id="edit-style-main-tab" class="t">Estilo</a></li>
+      <li><a href="#edit-style-values" class="t">Valores</a></li>
+     </ul>
+     
+     <div id="edit-style-main">
+      <fieldset>
+       <legend>Editar estilo</legend>
+       <p>
+        <label for="edit-style-name" class="t">Nombre</label>
+        <input type="text" name="edit-style-name" class="field" value="" id="edit-style-name"/>
+        <input type="hidden" id="edit-style-id" class="field" value=""/>
+        <input type="hidden" id="edit-style-rev" class="field" value=""/>
+       </p>
+       <p>
+        <label for="edit-style-description" class="t">Descripci&oacute;n</label>
+        <textarea id="edit-style-description" style="width: 100%;" rows="3" name="edit-style-description"></textarea>
+       </p>
+       <p>
+        <label for="edit-style-content" class="t">C&oacute;digo</label>
+        <textarea id="edit-style-content" name="edit-style-content" style="width: 100%;" rows="15"></textarea>
+       </p>
+       <p>
+        <div class="buttons">
+         <button class="t send" onclick="ui.onEditStyleOk();">Actualizar</button>
+         <button class="t send" onclick="ui.onEditStyleCancel();">Cancelar</button>
+        </div>
+       </p>
+      </fieldset>
+     </div>
+     <div id="edit-style-values">
+      <fieldset>
+       <legend>A&ntilde;adir valor</legend>
+       <p>
+        <label for="edit-style-name" class="t">Nombre</label>
+        <input type="text" name="edit-style-name" class="field" value="" id="edit-style-values-name"/>
+       </p>
+       <p>
+        <label for="edit-style-description" class="t">Valor</label>
+        <input type="text" name="edit-style-name" class="field" value="" id="edit-style-values-value"/>
+       </p>
+       <p>
+        <div class="buttons">
+         <button class="t send" onclick="ui.onAddStyleValue('edit');">A&ntilde;adir</button>
+        </div>
+       </p>
+      </fieldset>
+
+      <div class="list-scroll">
+       <div id="edit-style-values-list" class="values-list">
+       </div>
+      </div>
+     </div>
+    </div>
+
+  </div>
+
+
+  <div id="conflicts" class="form hidden tabs">
+   <ul>
+    <li><a href="#confs-current" id="confs-current-tab" class="t">Actual</a></li>
+    <li><a href="#confs-other" class="t">Alternativo</a></li>
+   </ul>
+   
+   <div id="confs-current" class="solve-conf">
+     <textarea id="editor-current"></textarea>
+     <button class="t send" onclick="ui.onSolve('current');">Mantener esta versi&oacute;n</button>
+   </div>
+
+   <div id="confs-other" class="solve-conf">
+     <textarea id="editor-other"></textarea>
+     <button class="t send" onclick="ui.onSolve('other');">Mantener esta versi&oacute;n</button>
+   </div>
+
+   <div class="buttons table-buttons" style="display: table">
+    <button class="t send" onclick="ui.onSolveCancel();">No resolver</button>
+   </div>
+  </div>
+
+  <input type="hidden" value="" name="_id"/>
+
+  <div id="insert-image" class="form hidden tabs">
+   <ul>
+    <li><a href="#list-images" id="list-images-tab" class="t">Imagenes</a></li>
+    <li><a href="#upload" class="t">Adjuntar</a></li>
+   </ul>
+
+   <div id="list-images">
+    <p id="img-msg"></p>
+    <div class="list-scroll">
+     <ul id="doc-images">
+     </ul>
+    </div>
+    <div class="buttons">
+     <button onclick="ui.listImages();">Actualizar</button>
+    </div>
+   </div>
+
+   <div id="upload">
+    <form id="upload-form" method="POST" action="" enctype="multipart/form-data">
+       <p id="upload-msg"></p>
+       <label for="_attachments">Archivo</label>
+       <input type="file" name="_attachments" id="image-file"/>
+      <div class="buttons">
+        <input type="hidden" value="" name="_rev"/>
+        <button onclick="return ui.upload();">Adjuntar</button>
+      </div>
+    </form>
+   </div>
+  </div>
+
+  <div id="new-paragraph" class="form hidden tabs">
+      <div class="buttons">
+        <button onclick="return ui.insertParagraphHere();">Nuevo parrafo aqui</button>
+        <button onclick="return ui.insertParagraphBelow();">Nuevo parrafo debajo</button>
+      </div>
+  </div>
+
+  <div id="open-path" class="hidden">
+   <iframe>
+   </iframe>
+  </div>
+
+  <!-- fin Sync -->
+  <div id="error-msg" class="hidden" onclick="$(this).html('').fadeOut();"></div>
+  <div id="message-msg" class="hidden" onclick="$(this).html('').fadeOut();"></div>
+
+  <iframe id="secret" class="hidden"></iframe>
+
+  <div id="cover"></div>
+
+  <div id="login" class="form hidden">
+   <fieldset>
+    <form id="login-form" method="POST" action="/_session">
+     <p>
+      <label for="username">Usuario</label>
+      <input type="text" name="name" id="user" class="field"/>
+     </p>
+
+     <p>
+      <label for="password">Contrase&ntilde;a</label>
+      <input type="password" name="password" id="pass" class="field"/>
+     </p>
+
+     <div class="table-buttons">
+       <button onclick="return ui.login();">Ingresar</button>
+     </div>
+    </form>
+   </fieldset>
+  </div>
+
+
+ </body>
+</html>
+

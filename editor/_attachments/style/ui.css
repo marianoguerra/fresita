@@ -1,0 +1,235 @@
+html, body, span, div, p{
+ border: 0;
+ padding: 0;
+ margin: 0;
+}
+
+body{
+ background-color: #f5f5f5;
+}
+
+html, body{
+ height: 100%;
+}
+
+/*.wym_box{
+ height: 95%;
+}
+
+.wym_iframe{
+ height: 90%;
+}*/
+
+.wym_skin_default {
+ border: none;
+}
+
+.hidden{
+ display: none;
+}
+
+.form select, .field, .form textarea, .form .send{
+ float: right;
+ margin-right: 0.2em;
+}
+
+.form input[type=text], .form input[type=password], .form select{
+ width: 15em;
+}
+
+.form textarea{
+ width: 100%;
+}
+
+.form fieldset{
+ padding: 0.5em;
+}
+
+#new-doc-more, #new-doc-form fieldset{
+ margin-bottom: 0.5em;
+}
+
+fieldset p{
+ display: table;
+ width: 100%;
+}
+
+.action-btn{
+ float: right;
+ margin-top: 1.0em;
+}
+
+.search-box{
+ display: table;
+ width: 100%;
+}
+.search-box-inner{
+ display: table;
+ width: 100%;
+}
+
+.search-loading{
+ margin-left: 49%;
+}
+
+.select-list{
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
+
+.select-list a img{
+ border: 0;
+}
+
+.ui-widget {
+ font-size: 0.9em;
+}
+
+#error-msg {
+ position: fixed;
+ padding: 1em;
+ background-color: #f33;
+ color: #fff;
+ top: 1em;
+ right: 1em;
+ cursor: pointer;
+ z-index: 2000;
+}
+
+#message-msg {
+ position: fixed;
+ padding: 1em;
+ background-color: #66f;
+ color: #fff;
+ top: 1em;
+ left: 1em;
+ cursor: pointer;
+ z-index: 2000;
+}
+
+a img{
+ border: 0;
+}
+
+.form ul{
+ list-style-type: none;
+ padding-left: 0;
+}
+
+#confirm-message{
+ text-align: center;
+}
+
+.buttons{
+ float: right;
+ margin-top: 1em;
+}
+
+.fresita-redo a{
+  background-image: url(../img/editor/edit-redo.png);
+}
+
+.description{
+ font-size: x-small;
+ color: #aaa;
+ margin-left: 1em;
+}
+
+.link-btn{
+ margin-right: 0.5em;
+}
+
+.values-list{
+ margin-top: 1em;
+ overflow: auto;
+}
+
+.style-value-item{
+ width: 99%;
+ margin: 0.3em;
+ border: 1px solid #aaa;
+ display: table;
+}
+
+.style-name, .style-value{
+ width: 48%;
+ margin-top: 0.3em;
+}
+
+.style-btns{
+ width: 15%;
+ float: left;
+ margin: 0.3em;
+}
+
+.style-values{
+ width: 80%;
+ float: right;
+ margin: 0.3em;
+}
+
+.style-name{
+ float: left;
+}
+
+.style-value{
+ float: right;
+}
+
+.list-scroll{
+ margin-top: 0.5em;
+ width: 100%;
+ height: 100px;
+ overflow: auto;
+}
+
+.combo-list{
+ margin-left: 2.0em;
+ width: 80%;
+}
+
+.combo-item{
+ width : 100%;
+ display: table;
+}
+
+.table-buttons{
+ width: 100%;
+ display: table;
+}
+
+.table-buttons button{
+ float: right;
+};
+
+.solve-conf{
+ width: 97%;
+}
+
+.tab-panel{
+ display: table;
+ width: 90%;
+ height: 70%;
+}
+
+#open-path>iframe, #upload>iframe{
+ width: 100%;
+ height: 100%;
+ border: 0;
+}
+
+#cover{
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: #369;
+ z-index: 500;
+}
+
+#export-format-field{
+ margin-top: 0.5em;
+ margin-bottom: 1.5em;
+}

@@ -1,0 +1,31 @@
+html, div, span{
+ margin: 0;
+ padding: 0;
+}
+
+html{
+ height: 100%;
+ background-color: #E1DFED;
+}
+
+body{
+ margin: 2% 3%;
+ padding: 1%;
+ border: 2px solid #97919D;
+ height: 100%;
+ background-color: #fff;
+ color: #333;
+ width: 94%;
+ display: table;
+ font-family: arial;
+}
+
+.section{
+ margin: 0.3em;
+ padding: 0.3em;
+ border: 1px solid #333;
+}
+
+img{
+ text-align: center;
+}

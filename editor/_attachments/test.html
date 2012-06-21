@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fresita Tests</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <link rel="stylesheet" href="style/qunit.css" type="text/css" media="screen" />
+
+    <script src="js/qunit.js"></script>
+    <script src="js/jquery.js"></script>
+
+    <script src="js/req.js"></script>
+    <script src="js/model.js"></script>
+
+    <script src="/_utils/script/json2.js"></script>
+    <script src="/_utils/script/jquery.couch.js?0.10.0"></script>
+
+    <script src="js/tests/repo.js"></script>
+    <script src="js/tests/style.js"></script>
+    <script src="js/tests/common.js"></script>
+    <script src="js/tests/commit.js"></script>
+    <script src="js/tests/author.js"></script>
+    <script src="js/tests/document.js"></script>
+    <script src="js/tests/category.js"></script>
+    <script>
+    req.base = "/fresita/";
+
+    $(document).ready(function(){
+     test_common();
+     test_author();
+     test_document();
+     test_commit();
+     test_repo();
+     test_style();
+     test_category();
+    });
+    </script>
+</head>
+<body>
+ <h1 id="qunit-header">Fresita Tests</h1>
+ <h2 id="qunit-banner"></h2>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+</body>
+</html>
